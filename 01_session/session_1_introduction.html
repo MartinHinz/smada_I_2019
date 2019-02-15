@@ -1,1164 +1,759 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Statistical methods for archaeological data analysis I: Basic methods</title>
-  <meta charset="utf-8">
-  <meta name="description" content="Statistical methods for archaeological data analysis I: Basic methods">
-  <meta name="author" content="Martin Hinz">
-  <meta name="generator" content="slidify" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
-    media="only screen and (max-device-width: 480px)" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
-  
-  <!-- Grab CDN jQuery, fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
-  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
-    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
-  </script>
-  
-  
+  <head>
+    <title>Statistical methods for archaeological data analysis I: Basic methods</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Martin Hinz" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link rel="stylesheet" href="../libs/default.css" type="text/css" />
+    <link rel="stylesheet" href="../libs/default-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="../libs/customize.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
 
-</head>
-<body style="opacity: 0">
-  <slides class="layout-widescreen">
-    
-    <!-- LOGO SLIDE -->
-        <slide class="title-slide segue nobackground">
-  <hgroup class="auto-fadein">
-    <h1>Statistical methods for archaeological data analysis I: Basic methods</h1>
-    <h2>01 - Introduction</h2>
-    <p>Martin Hinz<br/></p>
-  </hgroup>
-  <article></article>  
-</slide>
-    
+class: title-slide, center, middle
 
-    <!-- SLIDES -->
-    <slide class="" id="slide-1" style="background:;">
-  <article data-timings="">
-    <p>class: title-slide, center, middle</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+#  Statistical methods for archaeological data analysis I: Basic methods
 
-<slide class="" id="slide-2" style="background:;">
-  <hgroup>
-    <h2>Synopsis</h2>
-  </hgroup>
-  <article data-timings="">
-    <p class='pull-left[
-<img'>src="../images/01_session/snape.png" alt="">
-]</p>
+##  01 - Introduction
 
-<p class='pull-right[</p>
+###  Martin Hinz
 
-<blockquote>
-<p>&quot;There'>will be no foolish wand-waving or silly incantations in this class. As such, I don&#39;t expect many of you to appreciate the subtle science and exact art that is statistics.&quot;</p>
+####  Institut für Archäologische Wissenschaften, Universität Bern
 
-<h2>]</h2>
-</blockquote>
+20.02.2019
 
-<h2>Why statistics at all...</h2>
+---
 
-<h3>For you:</h3>
+## Synopsis
 
-<p>Statistics are used! If you want to understand them, you have to learn it!</p>
+.pull-left[
+![](../images/01_session/snape.png)
+]
 
-<h3>For archaeology/science as discipline</h3>
+.pull-right[
+&gt; "There will be no foolish wand-waving or silly incantations in this class. As such, I don't expect many of you to appreciate the subtle science and exact art that is statistics."
+]
+---
 
-<p>Statistics make everything easier!</p>
+## Why statistics at all...
 
-<ul>
-<li>Statements become more understandable and especially replicable
--Statistical statements are right or wrong no matter what reputation the scientist has</li>
-<li>Statements and data become comparable</li>
-<li>Getting the Knowledge of all the material for inductive understanding of scientific/archaeological relations takes decades, learning statistics only months</li>
-</ul>
+### For you:
+Statistics are used! If you want to understand them, you have to learn it!
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+### For archaeology/science as discipline
+Statistics make everything easier!
 
-<slide class="" id="slide-3" style="background:;">
-  <hgroup>
-    <h2>Figures don&#39;t lie, but liars figure.</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Samuel Clemens (alias Mark Twain)</p>
+- Statements become more understandable and especially replicable
+-Statistical statements are right or wrong no matter what reputation the scientist has
+- Statements and data become comparable
+- Getting the Knowledge of all the material for inductive understanding of scientific/archaeological relations takes decades, learning statistics only months
 
-<h3>Statistics are only correct if question, approach and method are correct</h3>
+---
 
-<p>e.g.: is social stratification observable on metal grave goods? Or on
+## Figures don't lie, but liars figure.
+Samuel Clemens (alias Mark Twain)
+
+### Statistics are only correct if question, approach and method are correct
+
+e.g.: is social stratification observable on metal grave goods? Or on
 jewellery? What if this depends on the (not observed) sex of the
-deceased...</p>
-
-<h3>Measuring and especially coding of measurements requires subjective decisions all the time:</h3>
-
-<p>Reasons for the decisions are often not understandable → subjective influence</p>
-
-<h3>Statistics for statistics sake?</h3>
-
-<p>A logic (archaeologic) meaning have to be behind an analysis. And the results of analyses have to be logical (archaeological) testable.</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-4" style="background:;">
-  <hgroup>
-    <h2>Statistic tool R: history (after Theus)</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>R is the successor of S resp. S-Plus</p>
+deceased...
 
-<ul>
-<li>S history:
+### Measuring and especially coding of measurements requires subjective decisions all the time:
 
-<ul>
-<li>1976-1980: S-Version 1; (development by AT&amp;T Labs) collection of Fortran routines</li>
-<li>1980-1984: S-Version 2 Porting to UNIX, definition of the command language</li>
-<li>1988-1991: S-Version 3 Porting to C, object-oriented, models</li>
-<li>1999-today:</li>
-</ul></li>
-</ul>
+Reasons for the decisions are often not understandable → subjective influence
 
-<p>S-Version 4 improved object-orientation (parallel the commercial version S-Plus)</p>
-
-<ul>
-<li><p>R history</p>
-
-<ul>
-<li>early 90th: Development in New Zealand (R. Ihaka, R. Gentleman) Lisp based, only platform was Mac</li>
-<li>middle 90th: expansion onto other platforms</li>
-<li>end 90th: distributed development by the R-Core-Team</li>
-</ul></li>
-<li><p>R-Core-Team: 17 developers all over the world</p></li>
-<li><p>R-”specialists”: ca. 50 contributer</p></li>
-<li><p>developers of R-packages: hundreds, daily more</p></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-5" style="background:;">
-  <hgroup>
-    <h2>Why R?</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Open Source</h3>
-
-<ul>
-<li>Free accessible source code: transparency of the program</li>
-<li>Free to distribute: you don&#39;t have to pay horrific prices or make illegal copies</li>
-</ul>
-
-<h3>Reference of the used algorithms</h3>
-
-<ul>
-<li>Scientific citable</li>
-</ul>
-
-<h3>Power</h3>
-
-<ul>
-<li>The tool can do everything! Really! Exept making coffee...</li>
-</ul>
-
-<h3>Spread</h3>
-
-<ul>
-<li>Runs on all (major) operating systems</li>
-<li>Is widely used in the scientific field</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-6" style="background:;">
-  <hgroup>
-    <h2>Why R?</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Disadvantages</h3>
-
-<ul>
-<li>Command line: unfamiliar (new/old way to work with a computer)</li>
-<li>GUIs look different</li>
-<li>Knowledge of the english language is helpful</li>
-<li>Names of functions and parameters have to be kept in mind: is it col.names, colnames or header?</li>
-<li>Documentation is partly not very intuitiv: you should know what you are searching for</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-7" style="background:;">
-  <hgroup>
-    <h2>Basic literature</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Stephan Shennan, Quantifying Archaeology.</h3>
-
-<p>The textbook for this course.</p>
-
-<h3>David L. Carlson, Quantitative Methods in Archaeology Using R</h3>
-
-<p>A archaeology specific R textbook</p>
-
-<h3>Dubravko Dolić, Statistik mit R.</h3>
-
-<h3>John Verzani, Using R for Introductory Statistics.</h3>
-
-<p>R-specific (introductory) statistical books</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-8" style="background:;">
-  <hgroup>
-    <h2>More literature</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>M. Fletcher/G. R. Lock, Digging Numbers: Elementary Statistics for Archaeologists. Oxford Univ. Comm. Arch. Monogr. 332 (Oxford 2005).</li>
-<li> M. J. Baxter, Exploratory Multivariate Analysis in Archaeology (Edinburgh 1994).</li>
-<li> M. Baxter, Statistics in Archaeology (London 2003).</li>
-<li> P. Ihm, Statistik in der Archäologie: Probleme der Anwendung, allgemeine Methoden, Seriation und Klassifikation. Archaeo-Physika 9 (Köln 1978).</li>
-<li>J. Bortz, Statistik für Sozialwissenschaftler4 (Berlin u. a. 1993).</li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-9" style="background:;">
-  <hgroup>
-    <h2>Schedule</h2>
-  </hgroup>
-  <article data-timings="">
-    <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> date </th>
-   <th style="text-align:left;"> topic </th>
-   <th style="text-align:left;"> chapt. Shennan </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 20.02.2019 </td>
-   <td style="text-align:left;"> Introduction </td>
-   <td style="text-align:left;"> 1+2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 27.02.2019 </td>
-   <td style="text-align:left;"> Introduction into R </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 06.03.2019 </td>
-   <td style="text-align:left;"> Explorative statistics - plots </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 20.03.2019 </td>
-   <td style="text-align:left;"> Descriptive statistics </td>
-   <td style="text-align:left;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 27.03.2019 </td>
-   <td style="text-align:left;"> Nonparametric Tests </td>
-   <td style="text-align:left;"> 5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 03.04.2019 </td>
-   <td style="text-align:left;"> Chi-square test </td>
-   <td style="text-align:left;"> 7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 10.04.2019 </td>
-   <td style="text-align:left;"> Probability Theory </td>
-   <td style="text-align:left;"> 5, 6, 14 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 17.04.2019 </td>
-   <td style="text-align:left;"> Distributions </td>
-   <td style="text-align:left;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 01.05.2019 </td>
-   <td style="text-align:left;"> Parametric Tests </td>
-   <td style="text-align:left;"> 6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 08.05.2019 </td>
-   <td style="text-align:left;"> Regression &amp; Correlation </td>
-   <td style="text-align:left;"> 8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 15.05.2019 </td>
-   <td style="text-align:left;"> Cluster Analysis </td>
-   <td style="text-align:left;"> 11 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 22.05.2019 </td>
-   <td style="text-align:left;"> Correspondence Analysis </td>
-   <td style="text-align:left;"> 13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 29.05.2019 </td>
-   <td style="text-align:left;"> Test </td>
-   <td style="text-align:left;">  </td>
-  </tr>
-</tbody>
-</table>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-10" style="background:;">
-  <hgroup>
-    <h2>Flavours of statistics</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Descriptive statistics
-
-<ul>
-<li>Summary and description of data by using parameters (mean, standard deviation etc.)</li>
-</ul></li>
-<li>(graphical display)
-
-<ul>
-<li>Summary and description of data by using graphs (bar charts, pie charts etc.)</li>
-<li>Useful for pattern detection and description, therefore intermediate position</li>
-</ul></li>
-<li>Explorative statistics
-
-<ul>
-<li>Summary and description of data for pattern detection (e.g. correspondence analysis)</li>
-</ul></li>
-<li>Statistical inference or statistical induction
-
-<ul>
-<li>testing of hypothesis on data (e.g. chi-squared test)</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-11" style="background:;">
-  <hgroup>
-    <h2>Data, variables, values</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Variable:
-
-<ul>
-<li>What ist measured or analysed.</li>
-<li>e.g. height</li>
-</ul></li>
-<li>item:
-
-<ul>
-<li>That whichs variable is measure</li>
-<li>e.g. me as „possessor“ of a height, graves, persons...</li>
-</ul></li>
-<li>values:
-
-<ul>
-<li>The actual measurement.</li>
-<li>e.g. my height is 1.81 m.</li>
-</ul></li>
-<li>discrete variable:
-
-<ul>
-<li>Variable which can take only certain values without intermediate values</li>
-<li>e.g. income, counts of ceramic objects, sex (?)</li>
-</ul></li>
-<li>continuous Variablen:
-
-<ul>
-<li>Variable which can take all value and intermediate value</li>
-<li>e.g. height, temperature, proportion value</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-12" style="background:;">
-  <hgroup>
-    <h2>Flavours of Statistics 2</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>univariate statistics:
-
-<ul>
-<li>Only on variable is involved</li>
-<li>e.g. weight of bronze axes</li>
-</ul></li>
-<li>bivariate statistics:
-
-<ul>
-<li>Two variables are involved, of interest is their relation</li>
-<li>e.g. relationship of length and width of bronze axes</li>
-</ul></li>
-<li>multivariate statistik:
-
-<ul>
-<li>More than two variables are involved, of interest is their relation</li>
-<li>e.g. place of finding of axes (grave, depot, settlement) in relation to their chemical composition (proportion of copper, tin, arsenic, lead etc.)</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-13" style="background:;">
-  <hgroup>
-    <h2>Independent – dependent variable</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Independent Variable:
-
-<ul>
-<li>The assumed cause of a relationship</li>
-</ul></li>
-<li>Dependent variable:
-
-<ul>
-<li>The assumed effect of the independent variable in a relationship</li>
-</ul></li>
-<li>example:
-
-<ul>
-<li>Number of pearls in a grave (Dependent) vs.</li>
-<li>sex of the deceased (independent)</li>
-<li>Hypothesis: The number of pearls in a grave depends on the sex of the deceased</li>
-</ul></li>
-<li>Can (have to be) not always to be defined
-
-<ul>
-<li>e.g.: volume and height of a vessel...</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-14" style="background:;">
-  <hgroup>
-    <h2>Sample and Population</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>Population:
-
-<ul>
-<li>Amount of all items of relevance for an analysis.</li>
-</ul></li>
-<li>sample
-
-<ul>
-<li>Selection of items on basis of certain criteria (e.g. representativity) which</li>
-<li>will be analysed instead of the population</li>
-</ul></li>
-<li>Example opinion poll
-
-<ul>
-<li>Population: all federal citizens who have a meaning</li>
-<li>Sample: the citizens who are polled by the polling organization</li>
-</ul></li>
-</ul>
-
-<p><em>complete enumeration of all the values ↔ sampling</em></p>
-
-<p><strong>In archaeology only sampling is possible! The population can never be investigated!</strong></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-15" style="background:;">
-  <hgroup>
-    <h2>Levels of measurement</h2>
-  </hgroup>
-  <article data-timings="">
-    <ul>
-<li>nominal:
-
-<ul>
-<li>Categories which do not have a defined relationship among each other, only counting is possible (e.g. sex)</li>
-</ul></li>
-<li>ordinal:
-
-<ul>
-<li>Categories which are comparable and differ from each other in their characteristic [size/power/intensity]; their rank is determinable (e.g.</li>
-<li>preservation conditions – bad, medium, good)</li>
-</ul></li>
-<li>metric:
-
-<ul>
-<li>Variable has a defined system of measurement, all calculations are possible. To distinguish are</li>
-</ul></li>
-</ul>
-
-<ol>
-<li>interval: The variable has an arbitrary choosen neutral point (°C)</li>
-<li>ratio: The variable has an absolute neutral point (°K)</li>
-</ol>
-
-<ul>
-<li>Sometimes also used: absolut scale
-
-<ul>
-<li>counts (number of inhabitans)</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-16" style="background:;">
-  <hgroup>
-    <h2>Levels of Measurement</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><img src="data:image/png;base64,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" alt=""></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-17" style="background:;">
-  <hgroup>
-    <h2>Levels of measurement</h2>
-  </hgroup>
-  <article data-timings="">
-    <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> scale </th>
-   <th style="text-align:left;"> Meaningful statements </th>
-   <th style="text-align:left;"> Examples </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> nominal </td>
-   <td style="text-align:left;"> equality, inequality </td>
-   <td style="text-align:left;"> Telephon numbers, illnesses, ceramic types </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ordinal </td>
-   <td style="text-align:left;"> bigger-smaller-relationship </td>
-   <td style="text-align:left;"> Wind forces, academic ranks, classes of wealth, stratigraphic relations </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> interval </td>
-   <td style="text-align:left;"> Equality of differences </td>
-   <td style="text-align:left;"> Temperature in °C, calender age </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ratio </td>
-   <td style="text-align:left;"> Equality of ratios </td>
-   <td style="text-align:left;"> Measurement of lengths, weight, height of a vessel </td>
-  </tr>
-</tbody>
-</table>
-
-<p class='caption[after'>Bortz 2005]</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-18" style="background:;">
-  <hgroup>
-    <h2>Levels of measurement</h2>
-  </hgroup>
-  <article data-timings="">
-    <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> scale </th>
-   <th style="text-align:left;"> count </th>
-   <th style="text-align:left;"> sort </th>
-   <th style="text-align:left;"> difference </th>
-   <th style="text-align:left;"> quotient </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> nominal </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> no </td>
-   <td style="text-align:left;"> no </td>
-   <td style="text-align:left;"> no </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ordinal </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> no </td>
-   <td style="text-align:left;"> no </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> interval </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> no </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> ratio </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-   <td style="text-align:left;"> yes </td>
-  </tr>
-</tbody>
-</table>
-
-<p class='caption[after'>Bortz 2005]</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-19" style="background:;">
-  <hgroup>
-    <h2>Levels of measurement</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Change of the level</p>
-
-<ul>
-<li>downscaling:
-
-<ul>
-<li>Always possible.</li>
-<li>e.g. classification of measurements (small-medium-big)</li>
-<li>But: leads to loss of information</li>
-</ul></li>
-<li>upscaling:
-
-<ul>
-<li>Sometimes possible</li>
-<li>e.g.: instead of classification of ceramics in coarse-fine ware measurement of grain size</li>
-<li>But: leads to larger data volume and higher complexity of measurement</li>
-</ul></li>
-<li>Conclusion:
-
-<ul>
-<li>For analysis should the best fitting level of measurement be choosen.</li>
-<li>Because there can always occure a change in the requirements, rule of thumb: take one level finer than you think you will need in the end (as said, just a rule of thumb...)</li>
-</ul></li>
-</ul>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-20" style="background:;">
-  <hgroup>
-    <h2>Data collection: list</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Simple list of the data</p>
-
-<p>example:</p>
-
-<pre><code>##  [1] 154 167 187 165 190 176 167 156 154 165 167 171 154
-</code></pre>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-21" style="background:;">
-  <hgroup>
-    <h2>data preparation: matrix of data</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Table of multiple values each item</p>
-
-<p>example:
-.tiny[</p>
-
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> name </th>
-   <th style="text-align:left;"> height </th>
-   <th style="text-align:left;"> sex </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Hannah </td>
-   <td style="text-align:left;"> 154 </td>
-   <td style="text-align:left;"> 2(female) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Leon </td>
-   <td style="text-align:left;"> 167 </td>
-   <td style="text-align:left;"> 1(male) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lukas </td>
-   <td style="text-align:left;"> 187 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Leonie </td>
-   <td style="text-align:left;"> 165 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Luka </td>
-   <td style="text-align:left;"> 190 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lea </td>
-   <td style="text-align:left;"> 176 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lena </td>
-   <td style="text-align:left;"> 167 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mia </td>
-   <td style="text-align:left;"> 156 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Tim </td>
-   <td style="text-align:left;"> 154 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Fynn </td>
-   <td style="text-align:left;"> 165 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Anna </td>
-   <td style="text-align:left;"> 167 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Emily </td>
-   <td style="text-align:left;"> 171 </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Felix </td>
-   <td style="text-align:left;"> 154 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-</tbody>
-</table>
-
-<h2>]</h2>
-
-<h2>data preparation: “tally sheet” / frequency table</h2>
-
-<p>Table of multiple items each value
-example:</p>
-
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> name </th>
-   <th style="text-align:left;"> Tally marks </th>
-   <th style="text-align:left;"> counts </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 154 </td>
-   <td style="text-align:left;"> ||| </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 156 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 167 </td>
-   <td style="text-align:left;"> ||| </td>
-   <td style="text-align:left;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 165 </td>
-   <td style="text-align:left;"> || </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 171 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 176 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 187 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 190 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-</tbody>
-</table>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-22" style="background:;">
-  <hgroup>
-    <h2>data preparation: classification</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Table of multiple items each class of value</p>
-
-<p>example:</p>
-
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> name </th>
-   <th style="text-align:left;"> Tally marks </th>
-   <th style="text-align:left;"> counts </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> &lt;150 </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 150-159 </td>
-   <td style="text-align:left;"> |||| </td>
-   <td style="text-align:left;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 160-169 </td>
-   <td style="text-align:left;"> ||||| </td>
-   <td style="text-align:left;"> 5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 170-179 </td>
-   <td style="text-align:left;"> || </td>
-   <td style="text-align:left;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 180-189 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> &gt;190 </td>
-   <td style="text-align:left;"> | </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-</tbody>
-</table>
-
-<p>Class width here 10 cm</p>
-
-<p>Rule of thumb: ca. 8 – 12 classes or</p>
-
-<p>Number of classes $k ≈ \sqrt{n}$, here therefore $k ≈ \sqrt{13} = 3.6055513 ≈ 4$</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="" id="slide-23" style="background:;">
-  <hgroup>
-    <h2>Equations &amp; symbols</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>|||
+### Statistics for statistics sake?
+A logic (archaeologic) meaning have to be behind an analysis. And the results of analyses have to be logical (archaeological) testable.
+
+---
+
+## Statistic tool R: history (after Theus)
+
+R is the successor of S resp. S-Plus
+
+- S history:
+  - 1976-1980: S-Version 1; (development by AT&amp;T Labs) collection of Fortran routines
+  - 1980-1984: S-Version 2 Porting to UNIX, definition of the command language
+  - 1988-1991: S-Version 3 Porting to C, object-oriented, models
+  - 1999-today:
+
+S-Version 4 improved object-orientation (parallel the commercial version S-Plus)
+
+- R history
+  - early 90th: Development in New Zealand (R. Ihaka, R. Gentleman) Lisp based, only platform was Mac
+  - middle 90th: expansion onto other platforms
+  - end 90th: distributed development by the R-Core-Team
+
+- R-Core-Team: 17 developers all over the world
+- R-”specialists”: ca. 50 contributer
+- developers of R-packages: hundreds, daily more
+
+---
+
+## Why R?
+
+### Open Source
+
+- Free accessible source code: transparency of the program
+- Free to distribute: you don't have to pay horrific prices or make illegal copies
+
+### Reference of the used algorithms
+
+- Scientific citable
+
+### Power
+
+- The tool can do everything! Really! Exept making coffee...
+
+### Spread
+
+- Runs on all (major) operating systems
+- Is widely used in the scientific field
+
+---
+
+## Why R?
+
+### Disadvantages
+
+- Command line: unfamiliar (new/old way to work with a computer)
+- GUIs look different
+- Knowledge of the english language is helpful
+- Names of functions and parameters have to be kept in mind: is it col.names, colnames or header?
+- Documentation is partly not very intuitiv: you should know what you are searching for
+
+---
+
+## Basic literature
+
+### Stephan Shennan, Quantifying Archaeology.
+
+The textbook for this course.
+
+### David L. Carlson, Quantitative Methods in Archaeology Using R
+
+A archaeology specific R textbook
+
+### Dubravko Dolić, Statistik mit R.
+### John Verzani, Using R for Introductory Statistics.
+
+R-specific (introductory) statistical books
+
+---
+
+## More literature
+
+- M. Fletcher/G. R. Lock, Digging Numbers: Elementary Statistics for Archaeologists. Oxford Univ. Comm. Arch. Monogr. 332 (Oxford 2005).
+-  M. J. Baxter, Exploratory Multivariate Analysis in Archaeology (Edinburgh 1994).
+-  M. Baxter, Statistics in Archaeology (London 2003).
+-  P. Ihm, Statistik in der Archäologie: Probleme der Anwendung, allgemeine Methoden, Seriation und Klassifikation. Archaeo-Physika 9 (Köln 1978).
+- J. Bortz, Statistik für Sozialwissenschaftler4 (Berlin u. a. 1993).
+
+---
+
+## Schedule
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; date &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; topic &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; chapt. Shennan &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 20.02.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Introduction &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1+2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 27.02.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Introduction into R &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 06.03.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Explorative statistics - plots &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 20.03.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Descriptive statistics &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 27.03.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Nonparametric Tests &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 03.04.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Chi-square test &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10.04.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Probability Theory &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5, 6, 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 17.04.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Distributions &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 01.05.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Parametric Tests &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 08.05.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Regression &amp;amp; Correlation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 15.05.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cluster Analysis &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 22.05.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Correspondence Analysis &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 13 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 29.05.2019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Test &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+## Flavours of statistics
+
+- Descriptive statistics
+  - Summary and description of data by using parameters (mean, standard deviation etc.)
+- (graphical display)
+  - Summary and description of data by using graphs (bar charts, pie charts etc.)
+  - Useful for pattern detection and description, therefore intermediate position
+- Explorative statistics
+  - Summary and description of data for pattern detection (e.g. correspondence analysis)
+- Statistical inference or statistical induction
+  - testing of hypothesis on data (e.g. chi-squared test)
+
+---
+
+## Data, variables, values
+
+- Variable:
+  - What ist measured or analysed.
+  - e.g. height
+- item:
+  - That whichs variable is measure
+  - e.g. me as „possessor“ of a height, graves, persons...
+- values:
+  - The actual measurement.
+  - e.g. my height is 1.81 m.
+- discrete variable:
+  - Variable which can take only certain values without intermediate values
+  - e.g. income, counts of ceramic objects, sex (?)
+- continuous Variablen:
+  - Variable which can take all value and intermediate value
+  - e.g. height, temperature, proportion value
+
+---
+
+## Flavours of Statistics 2
+
+- univariate statistics:
+  - Only on variable is involved
+  - e.g. weight of bronze axes
+- bivariate statistics:
+  - Two variables are involved, of interest is their relation
+  - e.g. relationship of length and width of bronze axes
+- multivariate statistik:
+  - More than two variables are involved, of interest is their relation
+  - e.g. place of finding of axes (grave, depot, settlement) in relation to their chemical composition (proportion of copper, tin, arsenic, lead etc.)
+
+---
+
+## Independent – dependent variable
+
+- Independent Variable:
+  - The assumed cause of a relationship
+- Dependent variable:
+  - The assumed effect of the independent variable in a relationship
+- example:
+  - Number of pearls in a grave (Dependent) vs.
+  - sex of the deceased (independent)
+  - Hypothesis: The number of pearls in a grave depends on the sex of the deceased
+- Can (have to be) not always to be defined
+  - e.g.: volume and height of a vessel...
+
+---
+
+## Sample and Population
+
+- Population:
+  - Amount of all items of relevance for an analysis.
+- sample
+  - Selection of items on basis of certain criteria (e.g. representativity) which
+  - will be analysed instead of the population
+- Example opinion poll
+  - Population: all federal citizens who have a meaning
+  - Sample: the citizens who are polled by the polling organization
+
+*complete enumeration of all the values ↔ sampling*
+
+**In archaeology only sampling is possible! The population can never be investigated!**
+
+---
+
+## Levels of measurement
+
+- nominal:
+  - Categories which do not have a defined relationship among each other, only counting is possible (e.g. sex)
+- ordinal:
+  - Categories which are comparable and differ from each other in their characteristic [size/power/intensity]; their rank is determinable (e.g.
+  - preservation conditions – bad, medium, good)
+- metric:
+  - Variable has a defined system of measurement, all calculations are possible. To distinguish are
+
+1. interval: The variable has an arbitrary choosen neutral point (°C)
+2. ratio: The variable has an absolute neutral point (°K)
+
+- Sometimes also used: absolut scale
+  - counts (number of inhabitans)
+
+---
+
+## Levels of Measurement
+
+![](../images/01_session/scales_of_measurements.png)
+
+---
+
+## Levels of measurement
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; scale &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Meaningful statements &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Examples &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; nominal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; equality, inequality &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Telephon numbers, illnesses, ceramic types &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ordinal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; bigger-smaller-relationship &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wind forces, academic ranks, classes of wealth, stratigraphic relations &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; interval &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Equality of differences &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Temperature in °C, calender age &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ratio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Equality of ratios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measurement of lengths, weight, height of a vessel &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.caption[after Bortz 2005]
+
+---
+
+## Levels of measurement
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; scale &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; count &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sort &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; difference &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; quotient &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; nominal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ordinal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; interval &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; no &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ratio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; yes &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.caption[after Bortz 2005]
+
+---
+
+## Levels of measurement
+
+Change of the level
+
+- downscaling:
+  - Always possible.
+  - e.g. classification of measurements (small-medium-big)
+  - But: leads to loss of information
+- upscaling:
+  - Sometimes possible
+  - e.g.: instead of classification of ceramics in coarse-fine ware measurement of grain size
+  - But: leads to larger data volume and higher complexity of measurement
+- Conclusion:
+  - For analysis should the best fitting level of measurement be choosen.
+  - Because there can always occure a change in the requirements, rule of thumb: take one level finer than you think you will need in the end (as said, just a rule of thumb...)
+
+---
+
+## Data collection: list
+
+Simple list of the data
+
+example:
+
+```
+##  [1] 154 167 187 165 190 176 167 156 154 165 167 171 154
+```
+
+---
+
+## data preparation: matrix of data
+Table of multiple values each item
+
+example:
+.tiny[
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Hannah &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 154 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2(female) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1(male) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Lukas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 187 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leonie &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 165 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luka &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 190 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Lea &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 176 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Lena &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 156 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tim &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 154 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Fynn &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 165 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Anna &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Emily &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 171 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Felix &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 154 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+---
+
+## data preparation: “tally sheet” / frequency table
+
+Table of multiple items each value
+example:
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Tally marks &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; counts &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 154 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ||| &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 156 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ||| &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 165 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; || &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 171 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 176 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 187 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 190 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+## data preparation: classification
+
+Table of multiple items each class of value
+
+example:
+
+&lt;table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Tally marks &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; counts &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt;150 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 150-159 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; |||| &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 160-169 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ||||| &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 170-179 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; || &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 180-189 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;gt;190 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; | &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Class width here 10 cm
+
+Rule of thumb: ca. 8 – 12 classes or
+
+Number of classes `\(k ≈ \sqrt{n}\)`, here therefore `\(k ≈ \sqrt{13} = 3.6055513 ≈ 4\)`
+
+---
+
+## Equations &amp; symbols
+
+|||
 |-|-|
-| ca. | $a≈b$ |
-| count | $n$ |
-| sum | $\sum<em>{i=1}<sup>n</sup> x_i$ |
-| This means | $x_1 =0, x_2 =4, x_3 =5, x_4 =2, x_5 =1, x_6 =1 ; n=6$
-|  | $x_1 + x_2 + x_3 + x_4 + x_5 + x_6 =\sum</em>{i=1}<sup>n</sup> x<em>i$ |
-| Product the same way | $\prod</em>{i=1}<sup>n</sup> x_i = x_1 ∗x_2 ∗x_3 ∗x_4 ∗x_5 ∗x_6 = 0$ |</p>
+| ca. | `\(a≈b\)` |
+| count | `\(n\)` |
+| sum | `\(\sum_{i=1}^n x_i\)` |
+| This means | `\(x_1 =0, x_2 =4, x_3 =5, x_4 =2, x_5 =1, x_6 =1 ; n=6\)`
+|  | `\(x_1 + x_2 + x_3 + x_4 + x_5 + x_6 =\sum_{i=1}^n x_i\)` |
+| Product the same way | `\(\prod_{i=1}^n x_i = x_1 ∗x_2 ∗x_3 ∗x_4 ∗x_5 ∗x_6 = 0\)` |
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+---
 
-<slide class="" id="slide-24" style="background:;">
-  <hgroup>
-    <h2>Example arithm. mean</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>$$ \bar{x}=\frac{\sum_{i=1}<sup>n</sup> x_i} n $$</p>
+## Example arithm. mean
 
-<p>observations : x i :={154,167,187,165,190,176, 167,156,154,165,167,171, 154}</p>
+$$ \bar{x}=\frac{\sum_{i=1}^n x_i} n $$
 
-<p>number of observations : n=13</p>
+observations : x i :={154,167,187,165,190,176, 167,156,154,165,167,171, 154}
 
-<p>$$ \bar{x}=\frac{154 + 167 + 187 + 165 + 190 + 176 + 167 + 156 + 154 + 165 + 167 + 171 + 154} {13} \\
-\bar{x}=\frac{2173} {13} \\
-\bar{x}=167.1538462 $$</p>
+number of observations : n=13
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+$$ \bar{x}=\frac{154 + 167 + 187 + 165 + 190 + 176 + 167 + 156 + 154 + 165 + 167 + 171 + 154} {13} \\\\
+\bar{x}=\frac{2173} {13} \\\\
+\bar{x}=167.1538462 $$
 
-<slide class="" id="slide-25" style="background:;">
-  <hgroup>
-    <h2>exercise: description of the participants</h2>
-  </hgroup>
-  <article data-timings="">
-    <p><strong>Make 5 groups and carry out a data collection about the participants</strong></p>
+---
 
-<p>Data to collect for the groups</p>
+## exercise: description of the participants
 
-<ul>
-<li>A) Email, number of the computer in front of you</li>
-<li>B) Sex, Age</li>
-<li>C) laptop yes/no, foot size</li>
-<li>D) actual cash in your purse, height</li>
-<li>E) homecountry, operation system used at home</li>
-</ul>
+**Make 5 groups and carry out a data collection about the participants**
 
-<p>Collect the data matrix (use a spreadsheet software of your choice), determine the level of measurement of each variable and present your results in 10 min.</p>
+Data to collect for the groups
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+- A) Email, number of the computer in front of you
+- B) Sex, Age
+- C) laptop yes/no, foot size
+- D) actual cash in your purse, height
+- E) homecountry, operation system used at home
 
-<slide class="" id="slide-26" style="background:;">
-  <hgroup>
-    <h2>exercise: description of the participants</h2>
-  </hgroup>
-  <article data-timings="">
-    <h3>Conclusion:</h3>
+Collect the data matrix (use a spreadsheet software of your choice), determine the level of measurement of each variable and present your results in 10 min.
 
-<p>Data collection needs a systematic. This will be best developed with a small sample (&#39;pilot study&#39;). After this the whole planned data collection should be carried out according to the developed scheme equal for all items.</p>
+---
 
-<p>Information can be of very varying kind (level of measurement)</p>
+## exercise: description of the participants
 
-<p>For all kinds of information there are different ways of presenting them...</p>
+### Conclusion:
+Data collection needs a systematic. This will be best developed with a small sample ('pilot study'). After this the whole planned data collection should be carried out according to the developed scheme equal for all items.
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+Information can be of very varying kind (level of measurement)
 
-    <slide class="backdrop"></slide>
-  </slides>
-  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
-    <ul>
-      <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='NA'>
-         1
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Synopsis'>
-         2
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Figures don&#39;t lie, but liars figure.'>
-         3
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Statistic tool R: history (after Theus)'>
-         4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Why R?'>
-         5
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='Why R?'>
-         6
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=7 title='Basic literature'>
-         7
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='More literature'>
-         8
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=9 title='Schedule'>
-         9
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='Flavours of statistics'>
-         10
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=11 title='Data, variables, values'>
-         11
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=12 title='Flavours of Statistics 2'>
-         12
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='Independent – dependent variable'>
-         13
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Sample and Population'>
-         14
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='Levels of measurement'>
-         15
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='Levels of Measurement'>
-         16
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Levels of measurement'>
-         17
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Levels of measurement'>
-         18
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=19 title='Levels of measurement'>
-         19
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=20 title='Data collection: list'>
-         20
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=21 title='data preparation: matrix of data'>
-         21
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=22 title='data preparation: classification'>
-         22
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=23 title='Equations &amp; symbols'>
-         23
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=24 title='Example arithm. mean'>
-         24
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=25 title='exercise: description of the participants'>
-         25
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=26 title='exercise: description of the participants'>
-         26
-      </a>
-    </li>
-  </ul>
-  </div>  <!--[if IE]>
-    <script 
-      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
-    </script>
-    <script>CFInstall.check({mode: 'overlay'});</script>
-  <![endif]-->
-</body>
-  <!-- Load Javascripts for Widgets -->
-  
-  <!-- LOAD HIGHLIGHTER JS FILES -->
-  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
-   
-  </html>
+For all kinds of information there are different ways of presenting them...
+    </textarea>
+<script src="../libs/remark-latest.min.js"></script>
+<script src="../libs/macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"fig_caption": true,
+"ratio": "16:10"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
