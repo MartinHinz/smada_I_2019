@@ -13,6 +13,11 @@
 
 class: title-slide, center, middle
 
+
+```r
+rm(list = ls())
+```
+
 #  Statistical methods for archaeological data analysis I: Basic methods
 
 ##  02 - Introduction into R
@@ -194,12 +199,7 @@ ls()
 ```
 
 ```
-##  [1] "categories"        "height"            "height.in.m"      
-##  [4] "kursdata"          "kursdata.gelesen"  "kursdata.loaded"  
-##  [7] "kursdata.neu"      "kursdaten.loaded"  "kursmatrix"       
-## [10] "kursmatrix.loaded" "participants"      "places"           
-## [13] "sex"               "test"              "x"                
-## [16] "y"                 "z"
+## [1] "x"
 ```
 
 Delete a variable:
@@ -210,12 +210,7 @@ ls()
 ```
 
 ```
-##  [1] "categories"        "height"            "height.in.m"      
-##  [4] "kursdata"          "kursdata.gelesen"  "kursdata.loaded"  
-##  [7] "kursdata.neu"      "kursdaten.loaded"  "kursmatrix"       
-## [10] "kursmatrix.loaded" "participants"      "places"           
-## [13] "sex"               "test"              "y"                
-## [16] "z"
+## character(0)
 ```
 
 ---
@@ -236,12 +231,7 @@ ls()
 ```
 
 ```
-##  [1] "categories"        "height"            "height.in.m"      
-##  [4] "kursdata"          "kursdata.gelesen"  "kursdata.loaded"  
-##  [7] "kursdata.neu"      "kursdaten.loaded"  "kursmatrix"       
-## [10] "kursmatrix.loaded" "participants"      "places"           
-## [13] "sex"               "test"              "x"                
-## [16] "y"                 "z"
+## [1] "x" "y" "z"
 ```
 
 ```r
@@ -297,12 +287,7 @@ ls()
 ```
 
 ```
-##  [1] "categories"        "height"            "height.in.m"      
-##  [4] "kursdata"          "kursdata.gelesen"  "kursdata.loaded"  
-##  [7] "kursdata.neu"      "kursdaten.loaded"  "kursmatrix"       
-## [10] "kursmatrix.loaded" "participants"      "places"           
-## [13] "sex"               "test"              "x"                
-## [16] "y"                 "z"
+## [1] "x" "y" "z"
 ```
 
 ---
@@ -918,19 +903,19 @@ kursmatrix
 
 ```
 ##       [,1] [,2]
-##  [1,]  168   25
+##  [1,]  168   22
 ##  [2,]  167   18
-##  [3,]  187   21
-##  [4,]  165   19
+##  [3,]  187   24
+##  [4,]  165   25
 ##  [5,]  190   23
-##  [6,]  176   19
-##  [7,]  167   21
-##  [8,]  156   18
-##  [9,]  181   22
-## [10,]  165   20
-## [11,]  167   25
-## [12,]  171   21
-## [13,]  154   22
+##  [6,]  176   18
+##  [7,]  167   19
+##  [8,]  156   19
+##  [9,]  181   25
+## [10,]  165   19
+## [11,]  167   21
+## [12,]  171   25
+## [13,]  154   20
 ## [14,]   NA   NA
 ```
 ]
@@ -944,19 +929,19 @@ kursmatrix
 
 ```
 ##        height age
-## Hannah    168  25
+## Hannah    168  22
 ## Leon      167  18
-## Lukas     187  21
-## Leonie    165  19
+## Lukas     187  24
+## Leonie    165  25
 ## Luka      190  23
-## Lea       176  19
-## Lena      167  21
-## Mia       156  18
-## Tim       181  22
-## Fynn      165  20
-## Anna      167  25
-## Emily     171  21
-## Felix     154  22
+## Lea       176  18
+## Lena      167  19
+## Mia       156  19
+## Tim       181  25
+## Fynn      165  19
+## Anna      167  21
+## Emily     171  25
+## Felix     154  20
 ## Martin     NA  NA
 ```
 
@@ -975,19 +960,19 @@ kursmatrix / 100
 
 ```
 ##        height  age
-## Hannah   1.68 0.25
+## Hannah   1.68 0.22
 ## Leon     1.67 0.18
-## Lukas    1.87 0.21
-## Leonie   1.65 0.19
+## Lukas    1.87 0.24
+## Leonie   1.65 0.25
 ## Luka     1.90 0.23
-## Lea      1.76 0.19
-## Lena     1.67 0.21
-## Mia      1.56 0.18
-## Tim      1.81 0.22
-## Fynn     1.65 0.20
-## Anna     1.67 0.25
-## Emily    1.71 0.21
-## Felix    1.54 0.22
+## Lea      1.76 0.18
+## Lena     1.67 0.19
+## Mia      1.56 0.19
+## Tim      1.81 0.25
+## Fynn     1.65 0.19
+## Anna     1.67 0.21
+## Emily    1.71 0.25
+## Felix    1.54 0.20
 ## Martin     NA   NA
 ```
 ]
@@ -1011,19 +996,19 @@ kursmatrix / c(1:14, rep(2, 14))
 
 ```
 ##           height  age
-## Hannah 168.00000 12.5
+## Hannah 168.00000 11.0
 ## Leon    83.50000  9.0
-## Lukas   62.33333 10.5
-## Leonie  41.25000  9.5
+## Lukas   62.33333 12.0
+## Leonie  41.25000 12.5
 ## Luka    38.00000 11.5
-## Lea     29.33333  9.5
-## Lena    23.85714 10.5
-## Mia     19.50000  9.0
-## Tim     20.11111 11.0
-## Fynn    16.50000 10.0
-## Anna    15.18182 12.5
-## Emily   14.25000 10.5
-## Felix   11.84615 11.0
+## Lea     29.33333  9.0
+## Lena    23.85714  9.5
+## Mia     19.50000  9.5
+## Tim     20.11111 12.5
+## Fynn    16.50000  9.5
+## Anna    15.18182 10.5
+## Emily   14.25000 12.5
+## Felix   11.84615 10.0
 ## Martin        NA   NA
 ```
 ]
@@ -1043,19 +1028,19 @@ kursdata
 
 ```
 ##        age height sex
-## Hannah  25    168   f
+## Hannah  22    168   f
 ## Leon    18    167   m
-## Lukas   21    187   m
-## Leonie  19    165   f
+## Lukas   24    187   m
+## Leonie  25    165   f
 ## Luka    23    190   m
-## Lea     19    176   f
-## Lena    21    167   f
-## Mia     18    156   f
-## Tim     22    181   m
-## Fynn    20    165   m
-## Anna    25    167   f
-## Emily   21    171   f
-## Felix   22    154   m
+## Lea     18    176   f
+## Lena    19    167   f
+## Mia     19    156   f
+## Tim     25    181   m
+## Fynn    19    165   m
+## Anna    21    167   f
+## Emily   25    171   f
+## Felix   20    154   m
 ## Martin  NA     NA   m
 ```
 ]
@@ -1067,7 +1052,7 @@ kursdata[,"age"]
 ```
 
 ```
-##  [1] 25 18 21 19 23 19 21 18 22 20 25 21 22 NA
+##  [1] 22 18 24 25 23 18 19 19 25 19 21 25 20 NA
 ```
 
 ```r
@@ -1075,7 +1060,7 @@ kursdata$age
 ```
 
 ```
-##  [1] 25 18 21 19 23 19 21 18 22 20 25 21 22 NA
+##  [1] 22 18 24 25 23 18 19 19 25 19 21 25 20 NA
 ```
 
 ]
@@ -1104,8 +1089,8 @@ summary(kursdata)
 ##  Min.   :18.00   Min.   :154.0   f:7  
 ##  1st Qu.:19.00   1st Qu.:165.0   m:7  
 ##  Median :21.00   Median :167.0        
-##  Mean   :21.08   Mean   :170.3        
-##  3rd Qu.:22.00   3rd Qu.:176.0        
+##  Mean   :21.38   Mean   :170.3        
+##  3rd Qu.:24.00   3rd Qu.:176.0        
 ##  Max.   :25.00   Max.   :190.0        
 ##  NA's   :1       NA's   :1
 ```

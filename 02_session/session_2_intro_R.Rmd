@@ -21,6 +21,10 @@ output:
 ---
 class: title-slide, center, middle
 
+```{r setup, error=FALSE, warning=F, message=F}
+rm(list = ls())
+```
+
 ```{r, echo = FALSE, results="asis"}
 cat('# ', rmarkdown::metadata$title)
 ```
