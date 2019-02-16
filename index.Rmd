@@ -46,7 +46,7 @@ cat(rmarkdown::metadata$date)
 ### Presentations
 
 - [01. Session: Introduction](01_session/session_1_introduction.html)
-- [02. Session: Introduction into R](01_session/session_1_intro_duction_R.html)
+- [02. Session: Introduction into R](02_session/session_2_intro_R.html)
 ]
 
 .footnote[
