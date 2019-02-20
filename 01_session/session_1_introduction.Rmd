@@ -190,7 +190,7 @@ schedule <- c(
   "27.02.2019", "Introduction into R", "",
   "20.03.2019", "Explorative statistics - plots", "3",
   "27.03.2019", "Descriptive statistics", "4",
-  "03.03.2019", "Nonparametric Tests", "5",
+  "03.04.2019", "Nonparametric Tests", "5",
   "10.04.2019", "Chi-square test","7",
   "17.04.2019", "Probability Theory, Distributions", "5, 6, 14",
   "01.05.2019", "Parametric Tests", "6",
@@ -212,15 +212,18 @@ knitr::kable(schedule)  %>%
 
 ## Flavours of statistics
 
-- Descriptive statistics
-  - Summary and description of data by using parameters (mean, standard deviation etc.)
-- (graphical display)
-  - Summary and description of data by using graphs (bar charts, pie charts etc.)
-  - Useful for pattern detection and description, therefore intermediate position
-- Explorative statistics
-  - Summary and description of data for pattern detection (e.g. correspondence analysis)
-- Statistical inference or statistical induction
-  - testing of hypothesis on data (e.g. chi-squared test)
+### Descriptive statistics
+- Summary and description of data by using parameters (mean, standard deviation etc.)
+
+### (graphical display)
+- Summary and description of data by using graphs (bar charts, pie charts etc.)
+- Useful for pattern detection and description, therefore intermediate position
+
+### Explorative statistics
+- Summary and description of data for pattern detection (e.g. correspondence analysis)
+
+### Statistical inference or statistical induction
+- testing of hypothesis on data (e.g. chi-squared test)
 
 ---
 
@@ -246,45 +249,52 @@ knitr::kable(schedule)  %>%
 
 ## Flavours of Statistics 2
 
-- univariate statistics:
-  - Only on variable is involved
-  - e.g. weight of bronze axes
-- bivariate statistics:
-  - Two variables are involved, of interest is their relation
-  - e.g. relationship of length and width of bronze axes
-- multivariate statistik:
-  - More than two variables are involved, of interest is their relation
-  - e.g. place of finding of axes (grave, depot, settlement) in relation to their chemical composition (proportion of copper, tin, arsenic, lead etc.)
+### univariate statistics:
+- Only on variable is involved
+- e.g. weight of bronze axes
+
+### bivariate statistics:
+- Two variables are involved, of interest is their relation
+- e.g. relationship of length and width of bronze axes
+
+### multivariate statistik:
+- More than two variables are involved, of interest is their relation
+- e.g. place of finding of axes (grave, depot, settlement) in relation to their chemical composition (proportion of copper, tin, arsenic, lead etc.)
 
 ---
 
 ## Independent – dependent variable
 
-- Independent Variable:
-  - The assumed cause of a relationship
-- Dependent variable:
-  - The assumed effect of the independent variable in a relationship
-- example:
-  - Number of pearls in a grave (Dependent) vs.
-  - sex of the deceased (independent)
-  - Hypothesis: The number of pearls in a grave depends on the sex of the deceased
-- Can (have to be) not always to be defined
-  - e.g.: volume and height of a vessel...
+### Independent Variable:
+- The assumed cause of a relationship
+
+### Dependent variable:
+- The assumed effect of the independent variable in a relationship
+
+### example:
+- Number of pearls in a grave (Dependent) vs.
+- sex of the deceased (independent)
+- Hypothesis: The number of pearls in a grave depends on the sex of the deceased
+
+### Can (have to be) not always to be defined
+- e.g.: volume and height of a vessel...
 
 ---
 
 ## Sample and Population
 
-- Population:
-  - Amount of all items of relevance for an analysis.
-- sample
-  - Selection of items on basis of certain criteria (e.g. representativity) which
-  - will be analysed instead of the population
-- Example opinion poll
-  - Population: all federal citizens who have a meaning
-  - Sample: the citizens who are polled by the polling organization
+### Population:
+- Amount of all items of relevance for an analysis.
 
-*complete enumeration of all the values ↔ sampling*
+### Sample
+- Selection of items on basis of certain criteria (e.g. representativity) which
+- will be analysed instead of the population
+
+### Example opinion poll
+- Population: all federal citizens who have a meaning
+- Sample: the citizens who are polled by the polling organization
+
+*complete record of all the values ↔ sampling*
 
 **In archaeology only sampling is possible! The population can never be investigated!**
 
@@ -308,7 +318,7 @@ knitr::kable(schedule)  %>%
 
 ---
 
-## Levels of Measurement
+## Levels of measurement
 
 ![](../images/01_session/scales_of_measurements.png)
 
@@ -364,17 +374,19 @@ knitr::kable(olom)  %>%
 
 Change of the level
 
-- downscaling:
-  - Always possible.
-  - e.g. classification of measurements (small-medium-big)
-  - But: leads to loss of information
-- upscaling:
-  - Sometimes possible
-  - e.g.: instead of classification of ceramics in coarse-fine ware measurement of grain size
-  - But: leads to larger data volume and higher complexity of measurement
-- Conclusion:
-  - For analysis should the best fitting level of measurement be choosen.
-  - Because there can always occure a change in the requirements, rule of thumb: take one level finer than you think you will need in the end (as said, just a rule of thumb...)
+### downscaling:
+- Always possible.
+- e.g. classification of measurements (small-medium-big)
+- But: leads to loss of information
+
+### upscaling:
+- Sometimes possible
+- e.g.: instead of classification of ceramics in coarse-fine ware measurement of grain size
+- But: leads to larger data volume and higher complexity of measurement
+
+### Conclusion:
+- For analysis should the best fitting level of measurement be choosen.
+- Because there can always occure a change in the requirements, rule of thumb: take one level finer than you think you will need in the end (as said, just a rule of thumb...)
 
 ---
 
@@ -473,7 +485,7 @@ Number of classes $k ≈ \sqrt{n}$, here therefore $k ≈ \sqrt{13} = `r sqrt(13
 
 ## Equations & symbols
 
-|||
+| meaning | symbol |
 |-|-|
 | ca. | $a≈b$ |
 | count | $n$ |
@@ -486,18 +498,24 @@ Number of classes $k ≈ \sqrt{n}$, here therefore $k ≈ \sqrt{13} = `r sqrt(13
 
 ## Example arithm. mean
 
+Equations are recipes
+
 $$ \bar{x}=\frac{\sum_{i=1}^n x_i} n $$
 
-observations : x i :={154,167,187,165,190,176, 167,156,154,165,167,171, 154}
+observations : $x_i$ ={154, 167, 187, 165, 190, 176, 167, 156, 154, 165, 167, 171, 154}
 
 number of observations : n=13
 
 $$ \bar{x}=\frac{154 + 167 + 187 + 165 + 190 + 176 + 167 + 156 + 154 + 165 + 167 + 171 + 154} {13} \\\\
 \bar{x}=\frac{2173} {13} \\\\
 \bar{x}=`r 2173/13` $$
+.right[
+![:width 15%](../images/01_session/cake.jpeg)
 
+.caption[.tiny[@charlesetoroma - unsplash]]
+]
 ---
-
+class: inverse
 ## exercise: description of the participants
 
 **Make 5 groups and carry out a data collection about the participants**
@@ -510,9 +528,10 @@ Data to collect for the groups
 - D) actual cash in your purse, height
 - E) homecountry, operation system used at home
 
-Collect the data matrix (use a spreadsheet software of your choice), determine the level of measurement of each variable and present your results in 10 min.
+Collect the data matrix, determine the level of measurement of each variable and present your results in 10 min.
 
 ---
+class: inverse
 
 ## exercise: description of the participants
 
