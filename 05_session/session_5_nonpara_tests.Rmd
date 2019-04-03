@@ -23,7 +23,7 @@ editor_options:
 ---
 class: title-slide, center, middle
 
-```{r setup, echo=F, error=FALSE, warning=F, message=F}
+```{r setup, echo=F, error=FALSE, warning=F, message=F, results='hide'}
 rm(list = ls())
 options(digits = 3)
 Sys.setlocale("LC_MESSAGES", "en_US.utf8")
