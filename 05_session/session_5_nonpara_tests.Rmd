@@ -435,7 +435,7 @@ Factor f:
 
 That's why: $boundary-value = 1.36 * \sqrt{\frac{`r sum_rich` + `r sum_poor`}{`r sum_rich` * `r sum_poor`} } = `r 1.36 * sqrt((sum_rich + sum_poor)/(sum_rich * sum_poor))`$
 
-`r 1.36 * sqrt((sum_rich + sum_poor)/(sum_rich * sum_poor))` < `r round(max(graeberbrz.table.cast$difference),3)`, difference is not significant
+`r 1.36 * sqrt((sum_rich + sum_poor)/(sum_rich * sum_poor))` > `r round(max(graeberbrz.table.cast$difference),3)`, difference is not significant
 
 **But: That doesn't mean that the distributions are equal, only that they do not differ significant.**
 
@@ -621,7 +621,7 @@ The smaller value will be evaluated: `r min(sum(as.numeric(kammergroesse$f_below
 
 Look up in a table (e.g. Shennan 1997, Table B):
 
-Boundary value for significance 0.05 when n1=5 and n2=4: 2
+Boundary value for significance 0.05 when n1=5 and n2=5: 2
 
 The chamber sizes do differ from each other significantly.
 
