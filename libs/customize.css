@@ -28,6 +28,13 @@
   text-shadow: none;
 }
 
+.inverse thead {
+  background-color: #777; 
+}
+
+.inverse tr:nth-child(even) {
+  background-color: #555; 
+}
 body{
   font-family: 'Arial'
 }
