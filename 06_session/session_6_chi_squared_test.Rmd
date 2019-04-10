@@ -682,7 +682,7 @@ Problem with to low expected values
 | | + | - | |
 | settlement | 12*69/100 = 8.28 | .red[12*31/100=3.72] | 12 |
 | grave | 69*88/100=60.72 | 31*88/100=27.28 | 88 |
-| total | 69 | 31 | 200 |
+| total | 69 | 31 | 100 |
 
 Smaller than 5, so $\chi^2$ not applicable.
 
