@@ -161,7 +161,7 @@ A = {2,4,1,3,5}
 |-|-|
 | Set A={1,2,3,4}; Set B={4,5,6}; Event space Ω={1,2,3,4,5,6} ||
 | 1 is an element of set A | $1\in{A}$ |
-| C is the union of A and B {1,2,3,4,4,5,6} | $ C = A \cup B $ |
+| C is the union of A and B {1,2,3,4,4,5,6} | $C = A \cup B$ |
 | D is the intersection of A and B {4} | $D = A \cap B$ |
 | E is A minus B {1,2,3} | $E = A - B$ |
 | Not A (=event space - A) | $\bar{A} = \Omega - A = {5,6}$ |
@@ -191,13 +191,13 @@ $p(\bar{6})=p(\Omega) - p(6) = 1 - \frac{1}{6} = \frac{5}{6} = 0.8333 = 83.33\%$
 
 The probability of anything happening is always 100%.
 
-$p(A) = 1$
+$p(\Omega) = 1$
 
 Is an event safe: 100 % probability
 
 $p(A) = 1$
 
-$p(this is a statistics course) = 1$
+$p(this\ is\ a\ statistics\ course) = 1$
 
 If an event is excluded: 0% probability
 
@@ -407,11 +407,16 @@ How many possibilities are there to combine 2 dice results?
 
 With putting back, with respect to order
 
-$\Omega = \{1,2,3,4,5,6\}, n(\Omega) = 6; number\ dices\ k = 2$
+$\Omega = \{1,2,3,4,5,6\}; n(\Omega) = 6; number\ dices\ k = 2$
+
 $B^{k=2}_n = \{(x_1,x_2) | x_i \in \Omega\}$
+
 $n(B) = n(x_1) * n(x_2) = n(\Omega) * n(\Omega) = 6*6 = 36$
 
 Therefore: Probability for 1. roll=6, 2. roll=6: $p(6,6) = \frac{1}{6^2} = \frac{1}{36} = 0,0278= 2,78\%$
+
+---
+## combinatorics [3]
 
 How many possible unique Lotto tickets (6 of 49) are there?
 
@@ -423,7 +428,9 @@ $B^{k=6}_n = \{(x_1, x_2,...,x_6)|| x_i \in \Omega | (x_1,...x_{i-1}) \}$
 
 $n(B) = \frac{n!}{k! * (n-k)!} = \frac{49!}{6! * (49-6)!} = 13983816$
 
-Therefore: Probability for 6 correct crosses: $p(6_{right})=\frac{1}{13983816}=0.000000072=0.000007151 \%$
+Therefore: Probability for 6 correct crosses: 
+
+$p(6_{right})=\frac{1}{13983816}=0.000000072=0.000007151 \%$
 
 ---
 
@@ -810,3 +817,223 @@ $n^k$
 **number of possible results: $n^k$ = $2^20$ = 1048576**
 
 2 results can be distributed in 1048576 ways on 20 positions
+---
+class: center, middle
+
+number of positive events
+
+---
+.pull-left[
+HHHHHH
+]
+
+.pull-right[
+TTTTTTTTTTTTTT
+]
+
+```{r echo=FALSE, results='asis'}
+a <- 1:20
+b <- c(rep("H",6), rep("T",14))
+
+knitr::kable(data.frame(t(b)), "html", col.names=a)
+b <- c(rep("H",5), "T", "H", rep("T",13))
+
+knitr::kable(data.frame(t(b)), "html", col.names=a)
+
+b <- c(rep("H",5), rep("T",14), "H")
+
+knitr::kable(data.frame(t(b)), "html", col.names=a)
+```
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+We need:
+
+**Rejection range**: number head that is high enough to be sure with 95% of probability the coin is biased
+
+Number of positive events: How many possibilities are there to divide a fixed number of coins with head (k: 1-20) into 20 places (n)?
+
+n=20 places, k= cases head
+Is it important in which order the coins fall?
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+We need:
+
+**Rejection range**: number head that is high enough to be sure with 95% of probability the coin is biased
+
+Number of positive events: How many possibilities are there to divide a fixed number of coins with head (k: 1-20) into 20 places (n)?
+
+n=20 places, k= cases head
+
+Is it important in which order the coins fall?
+
+Answer: No, we are only interested in the number of e.g. 1x head, 2x tails, not in their order.
+
+If a coin shows tails, does this change the distribution of head/tail to the remaining places? (yes: without, no: with replacement)
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+We need:
+
+**Rejection range**: number head that is high enough to be sure with 95% of probability the coin is biased
+
+Number of positive events: How many possibilities are there to divide a fixed number of coins with head (k: 1-20) into 20 places (n)?
+
+Is it important in which order the coins fall? No
+
+Answer: No, we are only interested in the number of e.g. 1x head, 2x tails, not in their order.
+
+If a coin shows tails, does this change the distribution of head/tail to the remaining places? (yes: without, no: with replacement)
+
+Answer: Yes, the distribution is changing! If I have chosen head for a place, the number of remaining heads changes (with a fixed number of heads)!
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+n = 20 places, k = number heads
+
+Number of positive events
+
+-> combinatorics: 
+
+with not respecting the order and without replacement:
+
+||Variation (with respect to order)|Combination (without respecting the order)|
+|-|-|-|
+|with 'putting back'; with replacement| $n^k$ | $\frac{(n+k-1)!}{k!*(n-1)!}$ |
+|without 'putting back'; without replacement| $\frac{n!}{(n-k)!}$ | $\frac{n!}{k!*(n-k)!}=\binom{n}{k}$ |
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+n = 20 places, k = number heads
+
+Number of possible events = $n^k = 2^{20} = 1048576$
+
+Number of positive events: calculated according to binomial coefficient, possibilities to arrange number of outputs in number of throws
+
+.pull-left[
+No times head: n = 20, k=0: only one possibility
+
+1 times head: n = 20, k = 1: `r choose(20, 1)` possibilities
+
+2 times head: n = 20, k = 2: `r choose(20, 2)` possibilities
+
+3 times head: n = 20, k = 3: `r choose(20, 3)` possibilities
+
+4 times head: n = 20, k = 4: `r choose(20, 4)` possibilities
+
+5 times head: n = 20, k = 5: `r as.integer(choose(20, 5))` possibilities
+
+6 times head: n = 20, k = 6: `r as.integer(choose(20, 6))` possibilities
+]
+.pull-right[
+$\frac{n!}{k!*(n-k)!}=\binom{n}{k}$
+]
+
+---
+```{r, echo=F}
+prop_table <- data.frame(
+  n = 0:6
+)
+
+prop_table$possib <- choose(20,prop_table$n)
+prop_table$prob <- prop_table$possib / 2^20
+prop_table$cum_prob <- cumsum(prop_table$prob)
+```
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+Number of possible events = $n^k = 2^{20} = 1048576$
+
+$p(A) = \frac{Number\ of\ positive\ results}{Number\ of\ possible\ results}$
+
+```{r echo=FALSE, results='asis'}
+knitr::kable(prop_table, format = 'html', col.names = c("number head","possibilities",'positive/possible',"cumulative"))
+```
+
+
+---
+```{r, echo=F}
+prop_table <- data.frame(
+  n = 0:6
+)
+
+prop_table$possib <- choose(20,prop_table$n)
+prop_table$prob <- prop_table$possib / 2^20
+prop_table$cum_prob <- cumsum(prop_table$prob)
+```
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+Number of possible events = $n^k = 2^{20} = 1048576$
+
+General: $B_{n;k;p} = \binom{n}{k} * p^k * (1 - p)^{n-k}$: Equation for binomial distribution
+
+In this example eg. 2 Heads, 18 Tails, k = 2, n = 20, p = 0.5:
+
+190/1048576 = `r format(190/1048576, scientific=F)` = $\binom{20}{2} * 0.5^2 * (1 - 0.5)^{20-2} = 190*0.25 * `r (1 - 0.5)^(20-2)`$
+
+```{r echo=FALSE, results='asis'}
+knitr::kable(prop_table, format = 'html', col.names = c("number head","possibilities",'positive/possible',"cumulative"))
+```
+
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+N=20 throws
+
+We need:
+
+Rejection range: Number Number < 6: 95% Probability, that something with the coins is wrong. (25% of the tosses)
+
+In R:
+.tiny[
+```{r}
+binom.test(5,20,0.5)
+```
+]
+---
+
+## Relationship with statistical tests
+
+### Question: Is someone playing with biased coins?
+
+N=200 throws
+
+We need:
+
+Rejection range: Number Number < 85: 95% Probability, that something with the coins is wrong. (42% of the tosses)
+
+In R:
+.tiny[
+```{r}
+binom.test(85,200,0.5)
+```
+]
