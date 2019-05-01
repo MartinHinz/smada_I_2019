@@ -4,7 +4,7 @@ subtitle: "05 - Nonparametric Tests"
 author: "Martin Hinz"
 institute: "Institut für Archäologische Wissenschaften, Universität Bern"
 fontsize: 9pt
-date: "27.03.2019"
+date: "03.04.2019"
 output:
   xaringan::moon_reader:
     chakra: "../libs/remark-latest.min.js"
