@@ -1018,7 +1018,7 @@ N=20 throws
 
 We need:
 
-Rejection range: Number Number < 6: 95% Probability, that something with the coins is wrong. (25% of the tosses)
+Rejection range: Number Tails < 6: 95% Probability, that something with the coins is wrong. (25% of the tosses)
 
 In R:
 .tiny[
@@ -1036,7 +1036,7 @@ N=200 throws
 
 We need:
 
-Rejection range: Number Number < 85: 95% Probability, that something with the coins is wrong. (42% of the tosses)
+Rejection range: Number Tails < 85: 95% Probability, that something with the coins is wrong. (42% of the tosses)
 
 In R:
 .tiny[
