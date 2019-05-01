@@ -864,6 +864,7 @@ We need:
 Number of positive events: How many possibilities are there to divide a fixed number of coins with head (k: 1-20) into 20 places (n)?
 
 n=20 places, k= cases head
+
 Is it important in which order the coins fall?
 
 ---
