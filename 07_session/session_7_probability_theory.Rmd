@@ -523,7 +523,7 @@ Whether a variable is regarded as random or not depends on the definition:
 
 Coin toss: The result of a coin toss is *determined* by different physical laws (throwing force, density of air, gravity etc.)! Since we cannot control these, the result to be considered *random*!
 
-In order to be able to analyze them statistically, the results are converted into the space of real numbers shown (recoded).
+In order to be able to analyze them statistically, the results are converted into the space of real numbers (recoded).
 
 ---
 
