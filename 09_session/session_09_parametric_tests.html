@@ -4,6 +4,10 @@
     <title>Statistical methods for archaeological data analysis I: Basic methods</title>
     <meta charset="utf-8" />
     <meta name="author" content="Martin Hinz" />
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/viz-0.3/viz.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding-1.0.1/grViz.js"></script>
     <link rel="stylesheet" href="../libs/default.css" type="text/css" />
     <link rel="stylesheet" href="../libs/default-fonts.css" type="text/css" />
     <link rel="stylesheet" href="../libs/customize.css" type="text/css" />
@@ -84,10 +88,12 @@ Nearly in all cases at least one variable has to be interval scaled or higher
 (Deviation from the mean, which can only be calculated in case of interval or higher scaled data)
 
 ---
+class: middle, center
 
 ## Possible test tree
 
-fill in a test tree
+<div id="htmlwidget-b502c12db18877800f39" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b502c12db18877800f39">{"x":{"diagram":"digraph {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"normal distributed?\nks.test; shapiro.test\", shape=\"diamond\"]\n      tab2 [label = \"homogenous variances?\nf.test\", shape=\"diamond\"]\n      tab3 [label = \"t.test\"]\n      tab4 [label = \"t.test with \n welch correction\"]\n      tab5 [label = \"Non-Parametric Tests\"]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2[label=\"yes\"];\n      tab2 -> tab3[label=\"yes\"];\n      tab2 -> tab4[label=\"no\"];\n      tab1 -> tab5[label=\"no\"];\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -179,7 +185,7 @@ qqline(blade_length)
 ]
 
 .pull-right[
-![](session_09_parametric_tests_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](session_09_parametric_tests_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -574,7 +580,7 @@ independent variable: the grouping variable (here wetness)
 boxplot(size~wetness, data=settlements)
 ```
 
-![](session_09_parametric_tests_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](session_09_parametric_tests_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 ]
 ]
 
@@ -712,7 +718,7 @@ If we are interested in the influence of two grouping variables
 boxplot(size~regions, data=settlements)
 ```
 
-![](session_09_parametric_tests_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](session_09_parametric_tests_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -722,7 +728,7 @@ interaction.plot(settlements$wetness, settlements$regions,
 settlements$size)
 ```
 
-![](session_09_parametric_tests_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](session_09_parametric_tests_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
 
 ]
 ]

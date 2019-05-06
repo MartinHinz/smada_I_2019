@@ -27,6 +27,7 @@ class: title-slide, center, middle
 rm(list = ls())
 #options(digits = 3)
 Sys.setlocale("LC_MESSAGES", "en_US.utf8")
+library(DiagrammeR)
 ```
 
 ```{r, echo = FALSE, results="asis"}
@@ -108,10 +109,36 @@ Nearly in all cases at least one variable has to be interval scaled or higher
 (Deviation from the mean, which can only be calculated in case of interval or higher scaled data)
 
 ---
+class: middle, center
 
 ## Possible test tree
 
-fill in a test tree
+```{r, echo=FALSE}
+
+grViz("digraph {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1', shape='diamond']
+      tab2 [label = '@@2', shape='diamond']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+
+      # edge definitions with the node IDs
+      tab1 -> tab2[label='yes'];
+      tab2 -> tab3[label='yes'];
+      tab2 -> tab4[label='no'];
+      tab1 -> tab5[label='no'];
+      }
+
+      [1]: 'normal distributed?\\nks.test; shapiro.test'
+      [2]: 'homogenous variances?\\nf.test'
+      [3]: 't.test'
+      [4]: 't.test with \\n welch correction'
+      [5]: 'Non-Parametric Tests'
+      ")
+
+```
 
 ---
 
