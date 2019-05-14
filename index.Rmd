@@ -54,7 +54,7 @@ cat(rmarkdown::metadata$date)
 - [07. Session: Probability Theory and Distributions](07_session/session_7_probability_theory.html) | 01.05.2019
 - 08\. Session: Distributions | no date
 - [09\. Session: Parametric Tests](09_session/session_09_parametric_tests.html) | 08.05.2019
-- 10\. Session: Regression & Correlation | 15.05.2019
+- [10\. Session: Regression & Correlation](10_session/session_10_regression_correlation.html) | 15.05.2019
 - 11\. Session: Cluster Analysis | 22.05.2019
 - 12\. Session: Correspondence Analysis | 29.05.2019
 
