@@ -1,0 +1,53 @@
+"Nummer";"Leder/Fell";"Tierart";"Horizont";"Beschreibung";"Laenge";"Breite";"Dicke"
+513;"Leder";"Rind";"1b";"Riemen";15,6;1,2;0,3
+"610a";"Leder";"Ziege";6;"Zuschnitt?";11,6;3,2;0,12
+"610b";"Fell";"Ziege";6;"Flicken";8,3;5,6;0,1
+"611a";"Fell";"Ziege";"1d";"Flicken?";18,1;9,4;0,05
+"611b";"Fell";"Ziege";"1d";"Flicken?";9,3;8,7;0,07
+"611c";"Fell";"Ziege";"1d";"Flicken?";19,3;12,5;0,06
+"611d";"Fell";"Ziege";"1d";"Fragment";7;3,8;0,1
+"611e";"Fell";"Ziege";"1d";"Fragment";1,6;1,1;0,06
+"611f";"Fell";"Ziege";"1d";"Fragment";1,3;1,1;0,05
+"611g";"Fell";"Ziege";"1d";"Fragment";9,8;7,4;0,05
+"611h";"Fell";"Ziege";"1d";"Flicken?";13,9;9,6;0,07
+612;"Leder";"Ziege";3;"Zuschnitt?";4,2;3,7;0,15
+"613a";"Leder";"Rind";"Streufund";"Riemen";17,02;1,1;0,35
+"613b";"NA";"Rind";"Streufund";"Riemen";9,5;1,5;0,32
+614;"Fell";"Pferd";"Streufund";"Zuschnitt?";6,7;3,3;0,08
+616;"Leder";"Ziege";5;"Fragment";12,6;5;0,05
+617;"Fell";"Schaf";4;"Fragment";12,5;4,7;0,07
+"618a";"Fell";"Schaf";2;"Zuschnitt?";12,2;6,9;0,07
+"618b";"Fell";"Schaf";2;"Zuschnitt?";11,1;10,2;0,07
+619;"Leder";"Ziege";3;"Flicken?";20,2;10,7;0,13
+620;"Fell";"Ziege";"1d";"Fragment";28;19,5;0,1
+"621a";"Fell";"Ziege";3;"Flicken";43,1;8,6;0,17
+"621b";"Fell";"Ziege";3;"Flicken?";33,8;6,7;0,17
+"622a";"Leder";"Ziege";3;"Bekleidung Aermel";23,7;4,9;0,08
+"622b?";"Leder";"NA";;"Riemen";4,8;1,8;0,4
+"622c?";"Leder";"NA";;"Riemen";6,3;1,8;0,35
+623;"Leder";"Ziege";4;"Riemen";67;1,7;0,45
+"625a";"Fell";"Ziege";6;"Flicken";9,4;2,2;0,17
+"625b";"Fell";"Ziege";6;"Flicken";8,1;2;0,15
+"625c";"Fell";"Ziege";6;"Riemen";10,4;1,6;0,2
+"625d";"Fell";"Ziege";6;"Riemen";9,3;4,3;0,1
+"625e";"Fell";"Ziege";6;"Flicken";14;4,4;0,18
+626;"Leder";"Ziege";"1b";"Riemen";13,7;1,4;0,35
+627;"Leder";"Ziege";"1d";"Riemen";9,1;0,8;0,4
+"629a";"Leder";"Rind";5;"Zuschnitt?";9,2;5,4;0,25
+"629b";"Leder";"Rind";5;"Fragment";19,2;9,5;0,1
+"630a";"Leder";"Ziege";5;"Zuschnitt?";8,2;3,6;0,1
+"630b";"Leder";"Ziege";5;"Fragment";3,9;1,9;0,05
+"630c";"Leder";"Ziege";5;"Fragment";10,6;7,4;0,1
+"631a";"Leder";"Ziege";"Streufund";"Aufhaengung Gerbung";12;8,4;0,15
+"631b";"Leder";"Ziege";"Streufund";"Flicken";16,6;9;0,1
+632;"Fell";"Ziege";6;"Fragment";20,2;8,5;0,1
+"633a";"Leder";"Rind";5;"Zuschnitt?";13,1;7,5;0,2
+"633b";"Leder";"Rind";5;"Hautkante Gerbung";8;3,2;0,25
+"633c";"Leder";"Rind";5;"Hautkante Gerbung";4,7;2;0,25
+634;"Leder";"Rind";6;"Aufhaengung Gerbung";13,8;5;0,2
+"635a";"Leder";"Rind";6;"Zuschnitt";4,1;4;0,14
+"635b";"Leder";"Rind";6;"Zuschnitt";9;2,1;0,14
+636;"Leder";"Rind";5;"Riemen";55;1,6;0,35
+"637a";"Leder";"Rind";6;"Zuschnitt?";14,7;8,1;0,3
+"637b";"Fell";"Rind";6;"Flicken";13,3;9,4;0,25
+638;"Leder";"Rind";"Streufund";"Zuschnitt?";15,5;7,1;0,25
